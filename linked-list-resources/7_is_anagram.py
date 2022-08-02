@@ -59,11 +59,17 @@ def is_anagram3(s,t):
             return False
     return True
 
+def is_anagram4(s,t):
+    return sorted(s) == sorted(t)
+
 # print(is_anagram("anagram","nagaram")) # True
 # print(is_anagram("rat","car")) # False
 
 # print(is_anagram2("anagram","nagaram")) # True
 # print(is_anagram2("rat","car")) # False
 
-print(is_anagram3("anagram","nagaram")) # True
-print(is_anagram3("rat","car")) # False
+# print(is_anagram3("anagram","nagaram")) # True
+# print(is_anagram3("rat","car")) # False
+
+print(is_anagram4("anagram","nagaram")) # True
+print(is_anagram4("rat","car")) # False

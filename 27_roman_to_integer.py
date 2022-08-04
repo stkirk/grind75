@@ -78,7 +78,35 @@ def roman_to_int(s):
     # return total decimal number
     return total
 
+def roman_to_int_2(s):
+    # map numerals to dec values
+    dec = {
+        'I': 1, 
+        'V': 5, 
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+        }
+    total = 0
+    # ordered bigger --> smaller addition
+    # ordered smaller--> bigger subtract smaller
+    # loop through i in range(s)
+    for i in range(len(s)):
+        # check if in bounds, if i+1 < len(s), last possible subtraction can only happen in second to last numeral, else we are always adding
+        # if in bounds and s[i] < s[i+1] --> subtract s[i] from total
+        if i+1 < len(s) and dec[s[i]] < dec[s[i+1]]:
+            total -= dec[s[i]]
+        # else add s[i] 
+        else:
+            total += dec[s[i]]
+    return total
 
-print(roman_to_int("III")) #3
-print(roman_to_int("LVIII")) #58
-print(roman_to_int("MCMXCIV")) # 1994
+# print(roman_to_int("III")) #3
+# print(roman_to_int("LVIII")) #58
+# print(roman_to_int("MCMXCIV")) # 1994
+
+print(roman_to_int_2("III")) #3
+print(roman_to_int_2("LVIII")) #58
+print(roman_to_int_2("MCMXCIV")) # 1994
